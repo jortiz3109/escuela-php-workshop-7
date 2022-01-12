@@ -45,9 +45,6 @@ class AuthenticationTest extends TestCase
 
     public function test_a_disabled_user_cant_login(): void
     {
-        $this->expectException(UserDisabledException::class);
-        $this->withoutExceptionHandling();
-
         $user = $this->disabledUser(['email' => 'john.ortiz@evertecinc.com']);
         $this->post('/login', ['email' => $user->email(), 'password' => 'password']);
 
