@@ -12,7 +12,7 @@ class Product extends Model
     protected static function booted(): void
     {
         static::creating(function (Product $product) {
-            $product->code = Str::random(10);
+            $product->code = Str::upper(Str::random(10));
         });
     }
 }
