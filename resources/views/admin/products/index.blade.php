@@ -5,6 +5,12 @@
             <p class="title">
                 {{ $texts['title'] }}
             </p>
+            <form action="{{ route('admin.reports.store') }}" method="post">
+                @csrf
+                <input type="hidden" name="type" value="{{ \App\Constants\ReportTypes::PRODUCTS }}">
+                <input type="hidden" name="name" value="Products export">
+                <button class="button is-success" type="submit">Export</button>
+            </form>
         </div>
     </section>
     <div class="container mt-3">
